@@ -1,7 +1,13 @@
 {
   "name": "the-dev-department",
   "version": "0.1.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Walter Stocker <walter.stocker@gmx.de>",
   "private": true,
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/erbium-cms/samples.git"
+  },
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
