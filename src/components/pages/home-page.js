@@ -1,29 +1,35 @@
 import React from 'react'
-import { Header, Container, Segment } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
+
+import CompanyHeader from './company-header'
+import BlogEntry from './blog-entry'
+
+import { BlogEntries } from '../../data/blog-entries'
 
 const HomePageContainerStyle = {
   minHeight: 300,
   padding: '1em 0em'
 }
 
-const CompanyHeaderStyle = {
-  fontSize: '4em',
-  fontWeight: 'normal',
-  marginBottom: 0,
-  marginTop: '1em'
-}
+const HomePage = () => {
 
-const HomePage = () => (
-  <Segment inverted textAlign="center" style={HomePageContainerStyle} vertical>
-    <Container text>
-      <Header
-        as="h1"
-        content="THE Dev Department"
-        inverted
-        style={CompanyHeaderStyle}
-      />
-    </Container>
-  </Segment>
-)
+  return (
+    <div>
+      <Segment inverted textAlign="center" style={HomePageContainerStyle} vertical>
+        <CompanyHeader />
+      </Segment>
+
+      { BlogEntries.map((blogEntry, index) => (
+          <BlogEntry
+            key={index}
+            title={blogEntry.title}
+            modified={blogEntry.modified}
+            author={blogEntry.author}>
+            {blogEntry.content}
+          </BlogEntry>
+      ))}
+    </div>
+  )
+}
 
 export default HomePage
