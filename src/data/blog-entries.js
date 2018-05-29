@@ -15,7 +15,7 @@ const Paragraph = () => (
   </p>
 )
 
-export const BlogEntries = [
+export const blogEntries = [
   {
     title: 'Awesome Blog Article',
     author: 'Incredible Author',

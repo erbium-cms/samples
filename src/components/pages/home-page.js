@@ -2,9 +2,9 @@ import React from 'react'
 import { Segment } from 'semantic-ui-react'
 
 import CompanyHeader from './company-header'
-import BlogEntry from './blog-entry'
+import BlogEntriesContainer from './blog-entries-container'
 
-import { BlogEntries } from '../../data/blog-entries'
+import { blogEntries } from '../../data/blog-entries'
 
 const HomePageContainerStyle = {
   minHeight: 300,
@@ -23,16 +23,7 @@ const HomePage = () => {
         <CompanyHeader />
       </Segment>
 
-      {BlogEntries.map((blogEntry, index) => (
-        <BlogEntry
-          key={index}
-          title={blogEntry.title}
-          modified={blogEntry.modified}
-          author={blogEntry.author}
-        >
-          {blogEntry.content}
-        </BlogEntry>
-      ))}
+      <BlogEntriesContainer blogEntries={blogEntries} />
     </div>
   )
 }

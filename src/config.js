@@ -1,3 +1,3 @@
-export const ErbiumConfig = {
+export const erbiumConfig = {
   companyHeader: 'THE Dev Department'
 }
