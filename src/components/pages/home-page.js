@@ -12,21 +12,26 @@ const HomePageContainerStyle = {
 }
 
 const HomePage = () => {
-
   return (
     <div>
-      <Segment inverted textAlign="center" style={HomePageContainerStyle} vertical>
+      <Segment
+        inverted
+        textAlign="center"
+        style={HomePageContainerStyle}
+        vertical
+      >
         <CompanyHeader />
       </Segment>
 
-      { BlogEntries.map((blogEntry, index) => (
-          <BlogEntry
-            key={index}
-            title={blogEntry.title}
-            modified={blogEntry.modified}
-            author={blogEntry.author}>
-            {blogEntry.content}
-          </BlogEntry>
+      {BlogEntries.map((blogEntry, index) => (
+        <BlogEntry
+          key={index}
+          title={blogEntry.title}
+          modified={blogEntry.modified}
+          author={blogEntry.author}
+        >
+          {blogEntry.content}
+        </BlogEntry>
       ))}
     </div>
   )

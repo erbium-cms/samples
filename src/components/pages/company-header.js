@@ -1,6 +1,5 @@
 import React from 'react'
 import { Header, Container } from 'semantic-ui-react'
-
 import { ErbiumConfig } from '../../config'
 
 const CompanyHeaderStyle = {

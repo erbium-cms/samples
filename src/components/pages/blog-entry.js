@@ -14,10 +14,14 @@ const BlogEntryAuthorStyle = {
 
 const BlogEntry = ({ title, modified, author, children }) => (
   <Container text style={BlogEntryContainerStyle}>
-    <Header as='h2' content={title} />
-    <p><small>{modified}</small></p>
+    <Header as="h2" content={title} />
+    <p>
+      <small>{modified}</small>
+    </p>
     {children}
-    <p style={BlogEntryAuthorStyle}><small>{author}</small></p>
+    <p style={BlogEntryAuthorStyle}>
+      <small>{author}</small>
+    </p>
   </Container>
 )
 
