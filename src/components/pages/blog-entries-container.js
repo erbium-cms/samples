@@ -2,11 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import showdown from 'showdown'
+import prettify from 'showdown-prettify'
 
 import BlogEntry from './blog-entry'
 
 const BlogEntriesContainer = ({ blogEntries }) => {
-  let converter = new showdown.Converter()
+  let converter = new showdown.Converter({ extensions: ['prettify'] })
 
   return (
     <div>
