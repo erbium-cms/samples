@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import showdown from 'showdown'
-import prettify from 'showdown-prettify'
+import prettify from 'showdown-prettify' // eslint-disable-line no-unused-vars
 
 import BlogEntry from './blog-entry'
 
