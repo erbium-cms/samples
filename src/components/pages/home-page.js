@@ -5,7 +5,7 @@ import CompanyHeader from './company-header'
 import BlogEntriesContainer from './blog-entries-container'
 
 import { get } from '../../configuration.service'
-import { blogEntries } from '../../data/blog-entries'
+import { getBlogEntries } from '../../blog-entries.service'
 
 const HomePageContainerStyle = {
   minHeight: 300,
@@ -19,7 +19,8 @@ class HomePage extends React.Component {
     this.state = {
       erbiumConfig: {
         companyHeader: ''
-      }
+      },
+      blogEntries: []
     }
   }
 
@@ -27,10 +28,14 @@ class HomePage extends React.Component {
     get().then(response =>
       this.setState({ erbiumConfig: response.configuration })
     )
+
+    getBlogEntries().then(response =>
+      this.setState({ blogEntries: response.entries })
+    )
   }
 
   render() {
-    const { erbiumConfig } = this.state
+    const { erbiumConfig, blogEntries } = this.state
 
     return (
       <div>
