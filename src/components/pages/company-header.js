@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { Header, Container } from 'semantic-ui-react'
-import { erbiumConfig } from '../../config'
 
 const CompanyHeaderStyle = {
   fontSize: '4em',
@@ -9,7 +10,7 @@ const CompanyHeaderStyle = {
   marginTop: '1em'
 }
 
-const CompanyHeader = () => (
+const CompanyHeader = ({ erbiumConfig }) => (
   <Container text>
     <Header
       as="h1"
@@ -19,5 +20,11 @@ const CompanyHeader = () => (
     />
   </Container>
 )
+
+CompanyHeader.propTypes = {
+  erbiumConfig: PropTypes.shape({
+    companyHeader: PropTypes.string
+  }).isRequired
+}
 
 export default CompanyHeader

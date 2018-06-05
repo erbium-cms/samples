@@ -4,6 +4,7 @@ import { Segment } from 'semantic-ui-react'
 import CompanyHeader from './company-header'
 import BlogEntriesContainer from './blog-entries-container'
 
+import { get } from '../../configuration.service'
 import { blogEntries } from '../../data/blog-entries'
 
 const HomePageContainerStyle = {
@@ -11,21 +12,41 @@ const HomePageContainerStyle = {
   padding: '1em 0em'
 }
 
-const HomePage = () => {
-  return (
-    <div>
-      <Segment
-        inverted
-        textAlign="center"
-        style={HomePageContainerStyle}
-        vertical
-      >
-        <CompanyHeader />
-      </Segment>
+class HomePage extends React.Component {
+  constructor(props) {
+    super(props)
 
-      <BlogEntriesContainer blogEntries={blogEntries} />
-    </div>
-  )
+    this.state = {
+      erbiumConfig: {
+        companyHeader: ''
+      }
+    }
+  }
+
+  componentDidMount() {
+    get().then(response =>
+      this.setState({ erbiumConfig: response.configuration })
+    )
+  }
+
+  render() {
+    const { erbiumConfig } = this.state
+
+    return (
+      <div>
+        <Segment
+          inverted
+          textAlign="center"
+          style={HomePageContainerStyle}
+          vertical
+        >
+          <CompanyHeader erbiumConfig={erbiumConfig} />
+        </Segment>
+
+        <BlogEntriesContainer blogEntries={blogEntries} />
+      </div>
+    )
+  }
 }
 
 export default HomePage
